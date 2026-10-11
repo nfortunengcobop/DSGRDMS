@@ -1,7 +1,9 @@
+import { apiFetch } from './apiClient.js';
+
 const BASE = '/api/auth';
 
 export async function login(email, password) {
-    const res = await fetch(`${BASE}/login`, {
+    const res = await apiFetch(`${BASE}/login`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ email, password }),
@@ -12,7 +14,7 @@ export async function login(email, password) {
 }
 
 export async function linkGrower(growerId, token) {
-    const res = await fetch(`${BASE}/link-grower/${encodeURIComponent(growerId)}`, {
+    const res = await apiFetch(`${BASE}/link-grower/${encodeURIComponent(growerId)}`, {
         method:  'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
     });

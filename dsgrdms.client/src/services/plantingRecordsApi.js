@@ -85,7 +85,7 @@ export async function uploadImages(growerId, files) {
   const token = sessionStorage.getItem('_auth_token');
   const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
 
-  const res = await fetch(`${API_BASE}/upload-images`, {
+  const res = await apiFetch(`${API_BASE}/upload-images`, {
     method: 'POST',
     headers,
     body: formData,

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { fieldVisitsApi } from '../../services/fieldVisitsApi';
+import { apiFetch } from '../../services/apiClient';
 import './ViewFindingsModal.css';
 
 export default function ViewFindingsModal({ visitId, grower, findings, onClose }) {
@@ -16,15 +17,7 @@ export default function ViewFindingsModal({ visitId, grower, findings, onClose }
                     (result.photos || []).map(async (photo) => {
                         try {
                             // Fetch image as blob with Authorization header
-                            const token = sessionStorage.getItem('_auth_token');
-                            const response = await fetch(
-                                `http://localhost:5089${photo.url}`,
-                                {
-                                    headers: {
-                                        'Authorization': `Bearer ${token}`
-                                    }
-                                }
-                            );
+                            const response = await apiFetch(photo.url);
                             if (response.ok) {
                                 const blob = await response.blob();
                                 const objectUrl = URL.createObjectURL(blob);

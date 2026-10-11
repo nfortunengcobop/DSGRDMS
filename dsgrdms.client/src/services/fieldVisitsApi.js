@@ -138,7 +138,7 @@ export const fieldVisitsApi = {
                 };
             }
             
-            const res = await fetch(`/api/field-visits/${visitId}/log-findings`, options);
+            const res = await apiFetch(`/api/field-visits/${visitId}/log-findings`, options);
             
             console.log('DEBUG logFindings: Response status', res.status, 'Content-Type:', res.headers.get('content-type'));
             
