@@ -45,7 +45,7 @@ export default function ComplianceDocuments() {
     // Step progression order for persistent state
     const STEP_ORDER = ['registration', 'verification', 'field_visit', 'agreement', 'completed'];
 
-    // Fetch grower data and compliance documents
+    // Fetch grower data and compliance documents     
     useEffect(() => {
         async function loadGrowerData() {
             if (!user?.growerId) {

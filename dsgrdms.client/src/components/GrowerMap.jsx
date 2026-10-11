@@ -43,5 +43,6 @@ export default function GrowerMap({ lat, lng, growerName }) {
                 {lat.toFixed(6)}, {lng.toFixed(6)}
             </p>
         </div>
+        
     );
 }
